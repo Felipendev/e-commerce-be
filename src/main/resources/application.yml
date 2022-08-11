@@ -2,6 +2,10 @@ server:
   servlet:
     context-path: /e-commerce-be/api
 
+springdoc:
+  swagger-ui:
+    path: /swagger
+
 spring:
   datasource:
     url: jdbc:h2:mem:demodb
