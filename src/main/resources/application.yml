@@ -1,0 +1,3 @@
+server:
+  servlet:
+    context-path: /e-commerce-be/api
