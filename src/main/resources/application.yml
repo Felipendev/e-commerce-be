@@ -2,9 +2,9 @@ server:
   servlet:
     context-path: /e-commerce-be/api
 
-springdoc:
-  swagger-ui:
-    path: /public/swagger
+  springdoc:
+    swagger-ui:
+      path: /public/swagger
 
 spring:
   datasource:
