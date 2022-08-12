@@ -20,8 +20,7 @@ public class Venda {
     private UUID idVenda;
     @NotBlank
     private String nomeCliente;
-    @NotBlank
-    private String valorVenda;
+    private Integer valorVenda;
     @NotNull
     private LocalDateTime dataVenda;
     @Enumerated(EnumType.STRING)

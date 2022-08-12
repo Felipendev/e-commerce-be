@@ -11,8 +11,7 @@ import java.time.LocalDateTime;
 public class VendaRequest {
     @NotBlank
     private String nomeCliente;
-    @NotBlank
-    private String valorVenda;
+    private Integer valorVenda;
     @NotNull
     private LocalDateTime dataVenda;
     @NotNull
