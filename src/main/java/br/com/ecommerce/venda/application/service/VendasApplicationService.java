@@ -48,4 +48,13 @@ public class VendasApplicationService implements VendasService {
         vendaRepository.salva(venda);
         log.info("[finaliza] VendasApplicationService - pathAlteraVenda");
     }
+
+    @Override
+    public void mudaStatusVendaParaCancelado(UUID idVenda) {
+        log.info("[inicia] VendasApplicationService - postMudaStatusParaCancelado");
+        Venda venda = vendaRepository.buscaVendaAtravesId(idVenda);
+        venda.cancela();
+        vendaRepository.salva(venda);
+        log.info("[finaliza] VendasApplicationService - postMudaStatusParaCancelado");
+    }
 }

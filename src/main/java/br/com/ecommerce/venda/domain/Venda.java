@@ -42,4 +42,10 @@ public class Venda {
         this.dataVenda = vendaAlteracaoRequest.getDataVenda();
         this.statusVenda = vendaAlteracaoRequest.getStatusVenda();
     }
+
+    public void cancela() {
+        this.statusVenda = StatusVenda.CANCELADA;
+    }
+
+
 }

@@ -25,4 +25,8 @@ public interface VendaApi {
     @PatchMapping(value = "/{idVenda}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void pathAlteraVenda(@PathVariable UUID idVenda, @RequestBody @Valid VendaAlteracaoRequest vendaAlteracaoRequest);
+
+    @PostMapping(value = "/{idVenda}/cancelamento")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    void cancelamentoVenda(@PathVariable UUID idVenda);
 }

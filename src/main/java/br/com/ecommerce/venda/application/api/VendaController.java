@@ -45,4 +45,14 @@ public class VendaController implements VendaApi {
         vendasService.pathAlteraVenda(idVenda, vendaAlteracaoRequest);
         log.info("[finaliza] VendaController - pathAlteraVenda");
     }
+
+    @Override
+    public void cancelamentoVenda(UUID idVenda) {
+        log.info("[inicia] VendaController - postCancelamento");
+        log.info("[ID_VENDA] {}", idVenda);
+        vendasService.mudaStatusVendaParaCancelado(idVenda);
+        log.info("[finaliza] VendaController - postCancelamento");
+    }
+
+
 }

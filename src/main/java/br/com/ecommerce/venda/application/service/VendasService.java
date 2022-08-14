@@ -10,4 +10,5 @@ public interface VendasService {
     List<VendaListResponde> buscaTodasVendas();
     VendaDetalhadaResponse buscaVendaAtravesId(UUID idVenda);
     void pathAlteraVenda(UUID idVenda, VendaAlteracaoRequest vendaAlteracaoRequest);
+    void mudaStatusVendaParaCancelado(UUID idVenda);
 }
