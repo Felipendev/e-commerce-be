@@ -1,4 +1,4 @@
-package handler;
+package br.com.ecommerce.handler;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AccessLevel;

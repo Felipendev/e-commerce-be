@@ -1,5 +1,6 @@
 package br.com.ecommerce.venda.application.service;
 
+import br.com.ecommerce.venda.application.api.VendaDetalhadaResponse;
 import br.com.ecommerce.venda.application.api.VendaListResponde;
 import br.com.ecommerce.venda.application.api.VendaRequest;
 import br.com.ecommerce.venda.application.api.VendaResponse;
@@ -10,6 +11,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -31,5 +33,13 @@ public class VendasApplicationService implements VendasService {
         List<Venda> vendas = vendaRepository.buscaTodasVendas();
         log.info("[finaliza] VendasApplicationService - buscaTodasVendas");
         return VendaListResponde.converte(vendas);
+    }
+
+    @Override
+    public VendaDetalhadaResponse buscaVendaAtravesId(UUID idVenda) {
+        log.info("[inicia] VendasApplicationService - buscaVendaAtravesId");
+        Venda venda = vendaRepository.buscaVendaAtravesId(idVenda);
+        log.info("[finaliza] VendasApplicationService - buscaVendaAtravesId");
+        return new VendaDetalhadaResponse(venda);
     }
 }

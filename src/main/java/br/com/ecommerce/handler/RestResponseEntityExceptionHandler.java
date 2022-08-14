@@ -1,4 +1,4 @@
-package handler;
+package br.com.ecommerce.handler;
 
 import java.util.HashMap;
 import java.util.Map;

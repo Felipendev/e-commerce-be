@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @Log4j2
@@ -27,5 +28,13 @@ public class VendaController implements VendaApi {
         List<VendaListResponde> vendas = vendasService.buscaTodasVendas();
         log.info("[finaliza] VendaController - getTodasVendas");
         return vendas;
+    }
+
+    @Override
+    public VendaDetalhadaResponse getVendaAtravesId(UUID idVenda) {
+        log.info("[inicia] VendaController - getVendaAtravesId");
+        VendaDetalhadaResponse vendaDetalhada = vendasService.buscaVendaAtravesId(idVenda);
+        log.info("[finaliza] VendaController - getVendaAtravesId");
+        return vendaDetalhada;
     }
 }
