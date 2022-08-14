@@ -1,6 +1,7 @@
 package br.com.ecommerce.venda.application.service;
 
 import br.com.ecommerce.venda.application.api.*;
+import br.com.ecommerce.venda.domain.Venda;
 
 import java.util.List;
 import java.util.UUID;

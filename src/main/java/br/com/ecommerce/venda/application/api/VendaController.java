@@ -1,6 +1,7 @@
 package br.com.ecommerce.venda.application.api;
 
 import br.com.ecommerce.venda.application.service.VendasService;
+import br.com.ecommerce.venda.domain.Venda;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;

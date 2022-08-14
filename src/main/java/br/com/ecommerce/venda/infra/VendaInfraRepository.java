@@ -1,8 +1,8 @@
 package br.com.ecommerce.venda.infra;
 
+import br.com.ecommerce.handler.APIException;
 import br.com.ecommerce.venda.application.repository.VendaRepository;
 import br.com.ecommerce.venda.domain.Venda;
-import br.com.ecommerce.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.dao.DataIntegrityViolationException;
