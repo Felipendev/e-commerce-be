@@ -37,4 +37,12 @@ public class VendaController implements VendaApi {
         log.info("[finaliza] VendaController - getVendaAtravesId");
         return vendaDetalhada;
     }
+
+    @Override
+    public void pathAlteraVenda(UUID idVenda, VendaAlteracaoRequest vendaAlteracaoRequest) {
+        log.info("[inicia] VendaController - pathAlteraVenda");
+        log.info("[ID_VENDA] {}", idVenda);
+        vendasService.pathAlteraVenda(idVenda, vendaAlteracaoRequest);
+        log.info("[finaliza] VendaController - pathAlteraVenda");
+    }
 }

@@ -1,9 +1,6 @@
 package br.com.ecommerce.venda.application.service;
 
-import br.com.ecommerce.venda.application.api.VendaDetalhadaResponse;
-import br.com.ecommerce.venda.application.api.VendaListResponde;
-import br.com.ecommerce.venda.application.api.VendaRequest;
-import br.com.ecommerce.venda.application.api.VendaResponse;
+import br.com.ecommerce.venda.application.api.*;
 import br.com.ecommerce.venda.application.repository.VendaRepository;
 import br.com.ecommerce.venda.domain.Venda;
 import lombok.RequiredArgsConstructor;
@@ -41,5 +38,14 @@ public class VendasApplicationService implements VendasService {
         Venda venda = vendaRepository.buscaVendaAtravesId(idVenda);
         log.info("[finaliza] VendasApplicationService - buscaVendaAtravesId");
         return new VendaDetalhadaResponse(venda);
+    }
+
+    @Override
+    public void pathAlteraVenda(UUID idVenda, VendaAlteracaoRequest vendaAlteracaoRequest) {
+        log.info("[inicia] VendasApplicationService - pathAlteraVenda");
+        Venda venda = vendaRepository.buscaVendaAtravesId(idVenda);
+        venda.altera(vendaAlteracaoRequest);
+        vendaRepository.salva(venda);
+        log.info("[finaliza] VendasApplicationService - pathAlteraVenda");
     }
 }

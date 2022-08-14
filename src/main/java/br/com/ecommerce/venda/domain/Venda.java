@@ -1,5 +1,6 @@
 package br.com.ecommerce.venda.domain;
 
+import br.com.ecommerce.venda.application.api.VendaAlteracaoRequest;
 import br.com.ecommerce.venda.application.api.VendaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -17,7 +18,7 @@ import java.util.UUID;
 public class Venda {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid",name = "id", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
     private UUID idVenda;
     @NotBlank
     private String nomeCliente;
@@ -33,5 +34,12 @@ public class Venda {
         this.valorVenda = vendaRequest.getValorVenda();
         this.dataVenda = vendaRequest.getDataVenda();
         this.statusVenda = vendaRequest.getStatusVenda();
+    }
+
+    public void altera(VendaAlteracaoRequest vendaAlteracaoRequest) {
+        this.nomeCliente = vendaAlteracaoRequest.getNomeCliente();
+        this.valorVenda = vendaAlteracaoRequest.getValorVenda();
+        this.dataVenda = vendaAlteracaoRequest.getDataVenda();
+        this.statusVenda = vendaAlteracaoRequest.getStatusVenda();
     }
 }

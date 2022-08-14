@@ -21,4 +21,8 @@ public interface VendaApi {
     @GetMapping(value = "/{idVenda}")
     @ResponseStatus(code = HttpStatus.OK)
     VendaDetalhadaResponse getVendaAtravesId(@PathVariable UUID idVenda);
+
+    @PatchMapping(value = "/{idVenda}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void pathAlteraVenda(@PathVariable UUID idVenda, @RequestBody @Valid VendaAlteracaoRequest vendaAlteracaoRequest);
 }
