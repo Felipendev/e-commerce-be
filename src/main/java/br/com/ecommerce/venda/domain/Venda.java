@@ -1,5 +1,6 @@
 package br.com.ecommerce.venda.domain;
 
+import br.com.ecommerce.venda.application.api.VendaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,4 +27,11 @@ public class Venda {
     @Enumerated(EnumType.STRING)
     @NotNull
     private StatusVenda statusVenda;
+
+    public Venda(VendaRequest vendaRequest) {
+        this.nomeCliente = vendaRequest.getNomeCliente();
+        this.valorVenda = vendaRequest.getValorVenda();
+        this.dataVenda = vendaRequest.getDataVenda();
+        this.statusVenda = vendaRequest.getStatusVenda();
+    }
 }
