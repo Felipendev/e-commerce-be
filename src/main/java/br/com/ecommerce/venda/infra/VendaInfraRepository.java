@@ -5,6 +5,7 @@ import br.com.ecommerce.venda.domain.Venda;
 import br.com.ecommerce.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +20,11 @@ public class VendaInfraRepository implements VendaRepository {
     @Override
     public Venda salva(Venda venda) {
         log.info("[inicia] VendaInfraRepository - salva");
-        vendaSpringDataJPARepository.save(venda);
+        try {
+            vendaSpringDataJPARepository.save(venda);
+        } catch (DataIntegrityViolationException e) {
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Existem dados duplicados! ", e);
+        }
         log.info("[finaliza] VendaInfraRepository - salva");
         return venda;
     }
