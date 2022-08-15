@@ -10,20 +10,20 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Value
-public class VendaListResponde {
+public class VendaListResponse {
     private UUID idVenda;
     private String nomeCliente;
     private Integer valorVenda;
     private LocalDateTime dataVenda;
     private StatusVenda statusVenda;
 
-    public static List<VendaListResponde> converte(List<Venda> vendas) {
+    public static List<VendaListResponse> converte(List<Venda> vendas) {
         return vendas.stream()
-                .map(VendaListResponde::new)
+                .map(VendaListResponse::new)
                 .collect(Collectors.toList());
     }
 
-    public VendaListResponde(Venda venda) {
+    public VendaListResponse(Venda venda) {
         this.idVenda = venda.getIdVenda();
         this.nomeCliente = venda.getNomeCliente();
         this.valorVenda = venda.getValorVenda();

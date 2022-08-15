@@ -1,9 +1,9 @@
 package br.com.ecommerce.cobranca.application.api;
 
 import br.com.ecommerce.cobranca.domain.StatusCobranca;
-import lombok.Value;
+import lombok.Getter;
 
-@Value
+@Getter
 public class CobrancaRequest {
     private StatusCobranca statusCobranca;
 }

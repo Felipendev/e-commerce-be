@@ -1,5 +1,6 @@
 package br.com.ecommerce.venda.application.repository;
 
+import br.com.ecommerce.venda.domain.StatusVenda;
 import br.com.ecommerce.venda.domain.Venda;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface VendaRepository {
 
     List<Venda> buscaTodasVendas();
     Venda buscaVendaAtravesId(UUID idVenda);
+    List<Venda> findByStatusVenda(StatusVenda statusVenda);
 }

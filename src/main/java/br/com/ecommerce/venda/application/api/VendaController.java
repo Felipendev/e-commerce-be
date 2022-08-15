@@ -1,6 +1,7 @@
 package br.com.ecommerce.venda.application.api;
 
 import br.com.ecommerce.venda.application.service.VendasService;
+import br.com.ecommerce.venda.domain.StatusVenda;
 import br.com.ecommerce.venda.domain.Venda;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -24,11 +25,19 @@ public class VendaController implements VendaApi {
     }
 
     @Override
-    public List<VendaListResponde> getTodasVendas() {
+    public List<VendaListResponse> getTodasVendas() {
         log.info("[inicia] VendaController - getTodasVendas");
-        List<VendaListResponde> vendas = vendasService.buscaTodasVendas();
+        List<VendaListResponse> vendas = vendasService.buscaTodasVendas();
         log.info("[finaliza] VendaController - getTodasVendas");
         return vendas;
+    }
+
+    @Override
+    public List<VendaPorStatusResponse> getVendasAtravesStatus() {
+        log.info("[inicia] VendaController - getVendasAtravesStatus");
+        List<VendaPorStatusResponse> vendasPorStatus = vendasService.listaVendasEmAbertoAtravesStatus();
+        log.info("[finaliza] VendaController - getVendasAtravesStatus");
+        return vendasPorStatus;
     }
 
     @Override

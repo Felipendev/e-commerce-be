@@ -16,11 +16,15 @@ public interface VendaApi {
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<VendaListResponde> getTodasVendas();
+    List<VendaListResponse> getTodasVendas();
 
     @GetMapping(value = "/{idVenda}")
     @ResponseStatus(code = HttpStatus.OK)
     VendaDetalhadaResponse getVendaAtravesId(@PathVariable UUID idVenda);
+
+    @GetMapping(value = "/status")
+    @ResponseStatus(value = HttpStatus.OK)
+    List<VendaPorStatusResponse> getVendasAtravesStatus();
 
     @PatchMapping(value = "/{idVenda}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)

@@ -2,6 +2,7 @@ package br.com.ecommerce.venda.application.service;
 
 import br.com.ecommerce.venda.application.api.*;
 import br.com.ecommerce.venda.application.repository.VendaRepository;
+import br.com.ecommerce.venda.domain.StatusVenda;
 import br.com.ecommerce.venda.domain.Venda;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -25,11 +26,19 @@ public class VendasApplicationService implements VendasService {
     }
 
     @Override
-    public List<VendaListResponde> buscaTodasVendas() {
+    public List<VendaListResponse> buscaTodasVendas() {
         log.info("[inicia] VendasApplicationService - buscaTodasVendas");
         List<Venda> vendas = vendaRepository.buscaTodasVendas();
         log.info("[finaliza] VendasApplicationService - buscaTodasVendas");
-        return VendaListResponde.converte(vendas);
+        return VendaListResponse.converte(vendas);
+    }
+
+    @Override
+    public List<VendaPorStatusResponse> listaVendasEmAbertoAtravesStatus() {
+        log.info("[inicia] VendasApplicationService - listaVendasEmAbertoAtravesStatus");
+        List<Venda> vendasPorStatus = vendaRepository.findByStatusVenda(StatusVenda.ABERTA);
+        log.info("[finaliza] VendasApplicationService - listaVendasEmAbertoAtravesStatus");
+        return VendaPorStatusResponse.converte(vendasPorStatus);
     }
 
     @Override
